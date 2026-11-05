@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIO DUNYO | Tabiatni asraylik</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --green: #16834b;
+    --dark-green: #075c35;
+    --light-green: #e9f7ed;
+    --text: #183b2b;
+    --background: #f8fcf8;
+    --card: #ffffff;
+    --shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+body.dark {
+    --text: #e7f5eb;
+    --background: #10251b;
+    --card: #193527;
+    --light-green: #244b35;
+    --shadow: 0 8px 25px rgba(0,0,0,.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: .3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+.navbar {
+    max-width: 1320px;
+    margin: auto;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--green);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--text);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-actions button,
+.nav-actions select {
+    border: none;
+    background: var(--light-green);
+    color: var(--text);
+    padding: 9px 12px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--green);
+}
+
+.hero {
+    min-height: 660px;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background:
+        linear-gradient(90deg, rgba(0,35,20,.82), rgba(0,35,20,.35)),
+        url('https://yuz.uz/imageproxy/980x/https%3A/yuz.uz/file/news/4065078388d07f3dd9676e760c0e95d0.jpg') center/cover no-repeat;
+    color: white;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 620px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 27px;
+    border-radius: 30px;
+    background: var(--green);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--dark-green);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--dark-green);
+}
+
+section {
+    padding: 85px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: clamp(27px, 4vw, 42px);
+    color: var(--green);
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    max-width: 700px;
+    margin: auto;
+    color: var(--text);
+    opacity: .8;
+    font-size: 14px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.card h3 {
+    color: var(--green);
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 13px;
+    line-height: 1.8;
+    opacity: .85;
+}
+
+.stats {
+    background: var(--dark-green);
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    text-align: center;
+    padding: 55px 7%;
+}
+
+.stat h3 {
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.stat p {
+    font-size: 13px;
+    opacity: .85;
+}
+
+.search-box {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    display: flex;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+}
+
+.search-box button {
+    border: none;
+    padding: 0 22px;
+    background: var(--green);
+    color: white;
+    cursor: pointer;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: .4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.035);
+}
+
+.tips-list {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+
+.tip {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+.tip-icon {
+    font-size: 27px;
+}
+
+.tip h3 {
+    color: var(--green);
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.tip p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.quiz-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.quiz-box h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--green);
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px 18px;
+    margin: 10px 0;
+    border: 1px solid #cbded0;
+    border-radius: 10px;
+    background: var(--background);
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    transition: .2s;
+}
+
+.quiz-option:hover {
+    border-color: var(--green);
+    background: var(--light-green);
+}
+
+.quiz-option.correct {
+    background: #d7f5df;
+    border-color: #16834b;
+    color: #075c35;
+}
+
+.quiz-option.wrong {
+    background: #ffe0e0;
+    border-color: #dc4545;
+    color: #9c2020;
+}
+
+.quiz-feedback {
+    margin: 15px 0;
+    font-weight: 600;
+    min-height: 25px;
+}
+
+.quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.quiz-progress {
+    font-size: 13px;
+    opacity: .7;
+}
+
+footer {
+    background: #063b27;
+    color: white;
+    padding: 55px 7% 25px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 35px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+    color: #9de3b6;
+}
+
+footer p,
+footer a {
+    font-size: 13px;
+    line-height: 2;
+    opacity: .85;
+}
+
+footer a:hover {
+    color: #9de3b6;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.2);
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 35px;
+    font-size: 12px;
+    opacity: .7;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .7s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* BIO DUNYO — qo‘shimcha premium dizayn */
+html { scroll-behavior: smooth; }
+header { backdrop-filter: blur(14px); }
+.navbar { max-width: 1320px; }
+.logo { letter-spacing: .4px; }
+.nav-links a { position: relative; }
+.nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -7px;
+    width: 0; height: 2px; background: var(--green); transition: .25s;
+}
+.nav-links a:hover::after { width: 100%; }
+.hero {
+    position: relative;
+    min-height: 660px;
+    background-position: center 48%;
+}
+.hero::after {
+    content: "O‘ZBEKISTON TABIATI";
+    position: absolute; right: 7%; bottom: 34px;
+    color: rgba(255,255,255,.8); letter-spacing: 4px;
+    font-size: 11px; font-weight: 700;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { text-shadow: 0 5px 25px rgba(0,0,0,.28); }
+.btn { box-shadow: 0 9px 24px rgba(22,131,75,.25); }
+.section-title { max-width: 760px; margin-left: auto; margin-right: auto; }
+.section-title p { line-height: 1.8; }
+.card { border: 1px solid rgba(22,131,75,.07); }
+.card img { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.card:hover img { transform: scale(1.045); }
+.uzbekistan-section {
+    background: linear-gradient(180deg, var(--light-green), var(--background));
+}
+.eyebrow {
+    display: inline-block; color: var(--green); font-size: 11px;
+    font-weight: 800; letter-spacing: 3px; margin-bottom: 12px;
+}
+.place-tag {
+    display: inline-block; color: #16834b; background: #e6f6eb;
+    border-radius: 30px; padding: 5px 10px; margin-bottom: 10px;
+    font-size: 9px; font-weight: 800; letter-spacing: 1px;
+}
+.uz-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 210px;
+}
+.gallery-item {
+    position: relative; overflow: hidden; border-radius: 18px;
+    min-height: 210px; box-shadow: var(--shadow); background: #dcebe0;
+}
+.gallery-item.gallery-wide { grid-column: span 2; grid-row: span 2; }
+.gallery-item img {
+    display: block; width: 100%; height: 100%; min-height: 210px;
+    object-fit: cover; border-radius: 0; transition: transform .7s;
+}
+.gallery-item:hover img { transform: scale(1.07); }
+.gallery-item::after {
+    content: ""; position: absolute; inset: 35% 0 0;
+    background: linear-gradient(transparent, rgba(0,25,13,.82));
+    pointer-events: none;
+}
+.gallery-item figcaption {
+    position: absolute; z-index: 1; left: 18px; right: 14px; bottom: 16px;
+    color: white; display: flex; flex-direction: column; gap: 4px;
+}
+.gallery-item figcaption strong { font-size: 16px; }
+.gallery-item figcaption span { font-size: 10px; opacity: .88; letter-spacing: .3px; }
+#problems, #protect, #tips, #quiz { position: relative; }
+.stats { padding: 55px 7%; }
+.quiz-box { border: 1px solid rgba(22,131,75,.12); }
+footer { background: linear-gradient(135deg, #052f20, #0b5836); }
+img { background: #e5efe8; }
+@media (max-width: 850px) {
+    .uz-gallery { grid-template-columns: repeat(2, minmax(0,1fr)); grid-auto-rows: 190px; }
+    .gallery-item.gallery-wide { grid-column: span 2; grid-row: span 1; }
+}
+@media (max-width: 520px) {
+    .hero { min-height: 540px; background-position: 56% center; }
+    .hero::after { right: 6%; bottom: 20px; font-size: 9px; letter-spacing: 2px; }
+    .uz-gallery { gap: 10px; grid-auto-rows: 155px; }
+    .gallery-item { min-height: 155px; border-radius: 13px; }
+    .gallery-item img { min-height: 155px; }
+    .gallery-item figcaption { left: 10px; bottom: 10px; }
+    .gallery-item figcaption strong { font-size: 12px; }
+    .gallery-item figcaption span { font-size: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#home" class="logo">BIO <span>DUNYO</span></a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" data-i18n="home">Bosh sahifa</a></li>
+            <li><a href="#problems" data-i18n="problems">Ekologik muammolar</a></li>
+            <li><a href="#protect" data-i18n="protect">Tabiatni asraylik</a></li>
+            <li><a href="#uzbekistan-nature">O‘zbekiston</a></li>
+            <li><a href="#gallery" data-i18n="gallery">Galereya</a></li>
+            <li><a href="#tips" data-i18n="tips">Foydali maslahatlar</a></li>
+            <li><a href="#quiz" data-i18n="quiz">Eco test</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="uz">UZ</option>
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+            </select>
+            <button onclick="toggleDarkMode()" title="Tungi rejim">🌙</button>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1 data-i18n="heroTitle">Tabiatni asrash — kelajakni asrash!</h1>
+        <p data-i18n="heroText">
+            Bizning sayyoramiz — yagona uyimiz. Tabiatni sevaylik, atrof-muhitni
+            himoya qilaylik va kelajak avlod uchun yashil dunyo qoldiraylik.
+        </p>
+        <a href="#eco-articles" class="btn" data-i18n="discover">Kashf etish</a>
+        <a href="#quiz" class="btn btn-outline" data-i18n="takeTest">Test ishlash</a>
+    </div>
+</section>
+
+<section id="problems">
+    <div class="section-title reveal">
+        <h2 data-i18n="problemsTitle">Bugungi ekologik muammolar</h2>
+        <p data-i18n="problemsText">
+            Atrof-muhitga beparvo munosabat tabiat muvozanatiga ta’sir qiladi.
+            Keling, eng muhim ekologik muammolar bilan tanishamiz.
+        </p>
+    </div>
+
+    <div class="cards">
+        <article class="card reveal">
+            <img src="https://caucasia.travel/media/filer_public/5f/85/5f85f82d-04b5-44c5-8b34-2a2e2906a0c9/aral-usturt-barsakelmes.jpg" alt="Orolbo‘yi hududi" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="problem1Title">Orol dengizi muammosi</h3>
+                <p data-i18n="problem1Text">
+                    Orol dengizining qisqarishi Markaziy Osiyodagi eng katta ekologik
+                    muammolardan biridir. Bu holat tabiat va inson hayotiga ta’sir ko‘rsatadi.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://www.orexca.com/img/uzbekistan/aydarkul-lake1.jpg" alt="Suv resurslari" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="problem2Title">Suv tanqisligi</h3>
+                <p data-i18n="problem2Text">
+                    Suv — hayot manbai. Suvni isrof qilish, ifloslantirish va undan
+                    noto‘g‘ri foydalanish kelajak uchun jiddiy xavf tug‘diradi.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://orientexpeditions.com/media/filer_public/d2/6d/d26dc311-5331-48e2-8b66-59e61bf65b98/zaamin-mountans.jpg" alt="O‘rmon va tog‘ tabiati" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="problem3Title">O‘rmonlarning kamayishi</h3>
+                <p data-i18n="problem3Text">
+                    Daraxtlar havoni tozalaydi, kislorod ishlab chiqaradi va ko‘plab
+                    tirik organizmlar uchun yashash joyi hisoblanadi.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://yuz.uz/imageproxy/980x/https%3A/yuz.uz/file/news/4065078388d07f3dd9676e760c0e95d0.jpg" alt="Tog‘ va tabiat manzarasi" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="problem4Title">Havoning ifloslanishi</h3>
+                <p data-i18n="problem4Text">
+                    Transport, sanoat va chiqindilar havoga zararli moddalar chiqarishi
+                    mumkin. Toza havo salomatlik va tabiat uchun juda muhim.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="stat">
+        <h3>71%</h3>
+        <p data-i18n="stat1">Yer yuzining suv bilan qoplangan qismi</p>
+    </div>
+    <div class="stat">
+        <h3>3 trln+</h3>
+        <p data-i18n="stat2">Dunyodagi daraxtlar soni bo‘yicha taxmin</p>
+    </div>
+    <div class="stat">
+        <h3>1</h3>
+        <p data-i18n="stat3">Biz yashaydigan yagona sayyora</p>
+    </div>
+    <div class="stat">
+        <h3>∞</h3>
+        <p data-i18n="stat4">Tabiatni asrash imkoniyatlari</p>
+    </div>
+</div>
+
+<section id="protect">
+    <div class="section-title reveal">
+        <h2 data-i18n="protectTitle">Tabiatni qanday asraymiz?</h2>
+        <p data-i18n="protectText">
+            Kichik odatlar katta o‘zgarishlarga sabab bo‘lishi mumkin.
+            Har bir inson tabiatni himoya qilishga hissa qo‘sha oladi.
+        </p>
+    </div>
+
+    <div class="cards">
+        <article class="card reveal">
+            <img src="https://f.civitatis.com/uzbekistan/samarcanda/galeria/dunas-desierto-kyzyl-kum.jpg" alt="Tabiat manzarasi" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="protect1Title">Daraxt eking</h3>
+                <p data-i18n="protect1Text">
+                    Daraxtlar havoni tozalashga, tuproqni mustahkamlashga va
+                    ko‘plab jonzotlarga boshpana bo‘lishga yordam beradi.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://www.advantour.com/img/uzbekistan/tours/extension-aral-2/ship-cemetery.jpg" alt="Orolbo‘yi manzarasi" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="protect2Title">Chiqindini saralang</h3>
+                <p data-i18n="protect2Text">
+                    Qog‘oz, plastik, shisha va metallni alohida yig‘ish qayta
+                    ishlash jarayonini osonlashtiradi.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://media.izi.travel/9ceb8fdd-e08d-48fa-9fc9-6eb2752d9a0e/5b95de3f-771c-49d9-892f-5afe4ae73073_800x600.jpg" alt="Daryo bo‘yidagi tabiat" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="protect3Title">Suvni tejang</h3>
+                <p data-i18n="protect3Text">
+                    Jo‘mrakni bekorga ochiq qoldirmang, suvdan oqilona foydalaning
+                    va suv havzalarini ifloslantirmang.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section id="eco-articles">
+    <div class="section-title reveal">
+        <h2 data-i18n="articlesTitle">Ekologik bilimlar olami</h2>
+        <p data-i18n="articlesText">
+            Tabiat haqida ko‘proq bilish uni yaxshiroq asrashga yordam beradi.
+        </p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Maqola yoki ma’lumot qidirish..." oninput="searchContent()">
+        <button onclick="searchContent()">Qidirish</button>
+    </div>
+
+    <div class="cards" id="articleCards">
+        <article class="card reveal searchable">
+            <img src="https://yuz.uz/imageproxy/980x/https%3A/yuz.uz/file/news/4065078388d07f3dd9676e760c0e95d0.jpg" alt="Chimyon tog‘lari" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="article1Title">O‘zbekistonning tabiiy boyliklari</h3>
+                <p data-i18n="article1Text">
+                    O‘zbekiston tog‘lar, cho‘llar, daryolar, ko‘llar va turli tabiiy
+                    ekotizimlarga boy. Ularni asrash barchamizning vazifamizdir.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal searchable">
+            <img src="https://cdn-processed.tmatic.travel/836d320b-ea9c-4575-8970-86cd70e53e50.jpg" alt="Buxoro bug‘usi" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="article2Title">Qizil kitob nima?</h3>
+                <p data-i18n="article2Text">
+                    Qizil kitob — yo‘qolib ketish xavfi ostidagi o‘simlik va hayvon
+                    turlari haqidagi ma’lumotlarni jamlagan muhim nashr.
+                </p>
+            </div>
+        </article>
+
+        <article class="card reveal searchable">
+            <img src="https://caucasia.travel/media/filer_public/5f/85/5f85f82d-04b5-44c5-8b34-2a2e2906a0c9/aral-usturt-barsakelmes.jpg" alt="Ustyurt platosi" loading="lazy">
+            <div class="card-content">
+                <h3 data-i18n="article3Title">Ustyurt platosi</h3>
+                <p data-i18n="article3Text">
+                    Ustyurt — O‘zbekistonning shimoli-g‘arbida joylashgan keng plato.
+                    Bu hudud o‘ziga xos landshaft va yovvoyi tabiatga ega.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="uzbekistan-section" id="uzbekistan-nature">
+    <div class="section-title reveal">
+        <span class="eyebrow">O‘ZBEKISTON TABIATI</span>
+        <h2>Yurtimiz — betakror tabiat maskani</h2>
+        <p>Har bir hududning o‘ziga xos tabiati bor. Uni bilish — asrash sari birinchi qadam.</p>
+    </div>
+
+    <div class="cards uz-feature-grid">
+        <article class="card reveal">
+            <img src="https://www.advantour.com/img/uzbekistan/tours/extension-aral-2/ship-cemetery.jpg" alt="Mo‘ynoqdagi Orol dengizi kemalari" loading="lazy">
+            <div class="card-content">
+                <span class="place-tag">QORAQALPOG‘ISTON</span>
+                <h3>Orol dengizi va Mo‘ynoq</h3>
+                <p>Orolbo‘yi hududi suv resurslaridan oqilona foydalanish va qurigan dengiz tubida chang-tuz bo‘ronlarini kamaytirish muhimligini eslatadi.</p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://orientexpeditions.com/media/filer_public/d2/6d/d26dc311-5331-48e2-8b66-59e61bf65b98/zaamin-mountans.jpg" alt="Zomin tog‘lari" loading="lazy">
+            <div class="card-content">
+                <span class="place-tag">JIZZAX VILOYATI</span>
+                <h3>Zomin milliy tabiat bog‘i</h3>
+                <p>Archazorlar, tog‘ havosi va noyob landshaftlar bu hududning tabiiy boyligidir. O‘simliklarni payhon qilmaslik va chiqindi qoldirmaslik zarur.</p>
+            </div>
+        </article>
+
+        <article class="card reveal">
+            <img src="https://cdn-processed.tmatic.travel/836d320b-ea9c-4575-8970-86cd70e53e50.jpg" alt="Buxoro bug‘usi to‘qayzorda" loading="lazy">
+            <div class="card-content">
+                <span class="place-tag">MUHOFAZA ETILADIGAN TUR</span>
+                <h3>Buxoro bug‘usi</h3>
+                <p>To‘qay ekotizimlari ko‘plab hayvonlar uchun boshpana. Ularni saqlash uchun daryo bo‘yidagi tabiiy yashash joylarini himoya qilish muhim.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="section-title reveal">
+        <span class="eyebrow">PHOTO GALLERY</span>
+        <h2 data-i18n="galleryTitle">O‘zbekiston tabiatidan lavhalar</h2>
+        <p data-i18n="galleryText">
+            Yurtimizning betakror go‘zalligi va tabiiy boyliklari.
+        </p>
+    </div>
+
+    <div class="gallery reveal uz-gallery">
+        <figure class="gallery-item gallery-wide">
+            <img src="https://yuz.uz/imageproxy/980x/https%3A/yuz.uz/file/news/4065078388d07f3dd9676e760c0e95d0.jpg" alt="Chimyon tog‘lari va Chorvoq manzarasi" loading="lazy">
+            <figcaption><strong>Chimyon va Chorvoq</strong><span>Toshkent viloyati · Tog‘ ekotizimi</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://caucasia.travel/media/filer_public/5f/85/5f85f82d-04b5-44c5-8b34-2a2e2906a0c9/aral-usturt-barsakelmes.jpg" alt="Ustyurt platosining qoyali manzarasi" loading="lazy">
+            <figcaption><strong>Ustyurt platosi</strong><span>Qoraqalpog‘iston · Cho‘l va plato</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://www.advantour.com/img/uzbekistan/tours/extension-aral-2/ship-cemetery.jpg" alt="Mo‘ynoqdagi kemalar qabristoni" loading="lazy">
+            <figcaption><strong>Orol dengizi merosi</strong><span>Mo‘ynoq · Ekologik saboq</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://orientexpeditions.com/media/filer_public/d2/6d/d26dc311-5331-48e2-8b66-59e61bf65b98/zaamin-mountans.jpg" alt="Zomin milliy tabiat bog‘i tog‘lari" loading="lazy">
+            <figcaption><strong>Zomin milliy bog‘i</strong><span>Jizzax viloyati · Archazorlar</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://cdn-processed.tmatic.travel/836d320b-ea9c-4575-8970-86cd70e53e50.jpg" alt="Buxoro bug‘usi" loading="lazy">
+            <figcaption><strong>Buxoro bug‘usi</strong><span>To‘qaylar · Muhofaza qilinadigan tur</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://f.civitatis.com/uzbekistan/samarcanda/galeria/dunas-desierto-kyzyl-kum.jpg" alt="Qizilqum cho‘li qum tepaliklari" loading="lazy">
+            <figcaption><strong>Qizilqum cho‘li</strong><span>Markaziy Osiyo · Cho‘l tabiati</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://www.orexca.com/img/uzbekistan/aydarkul-lake1.jpg" alt="Aydarko‘l ko‘li" loading="lazy">
+            <figcaption><strong>Aydarko‘l</strong><span>Jizzax va Navoiy hududlari · Suv-botqoq maskani</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="https://media.izi.travel/9ceb8fdd-e08d-48fa-9fc9-6eb2752d9a0e/5b95de3f-771c-49d9-892f-5afe4ae73073_800x600.jpg" alt="Amudaryo bo‘yidagi to‘qayzor" loading="lazy">
+            <figcaption><strong>Amudaryo to‘qayzorlari</strong><span>Qoraqalpog‘iston · Noyob yashash muhiti</span></figcaption>
+        </figure>
+    </div>
+</section>
+
+<section id="tips">
+    <div class="section-title reveal">
+        <h2 data-i18n="tipsTitle">Har kuni bajarish mumkin bo‘lgan 7 foydali odat</h2>
+        <p data-i18n="tipsText">Tabiatni asrash kundalik hayotimizdagi oddiy tanlovlardan boshlanadi.</p>
+    </div>
+
+    <div class="tips-list">
+        <div class="tip reveal">
+            <div class="tip-icon">🌳</div>
+            <div>
+                <h3 data-i18n="tip1Title">Daraxt va gullarni asrang</h3>
+                <p data-i18n="tip1Text">O‘simliklarni sindirmang, ko‘chat ekish tadbirlarida qatnashing.</p>
+            </div>
+        </div>
+
+        <div class="tip reveal">
+            <div class="tip-icon">💧</div>
+            <div>
+                <h3 data-i18n="tip2Title">Suvni tejang</h3>
+                <p data-i18n="tip2Text">Tish yuvayotganda jo‘mrakni yopib qo‘ying va suvni isrof qilmang.</p>
+            </div>
+        </div>
+
+        <div class="tip reveal">
+            <div class="tip-icon">♻️</div>
+            <div>
+                <h3 data-i18n="tip3Title">Chiqindilarni saralang</h3>
+                <p data-i18n="tip3Text">Qayta ishlash mumkin bo‘lgan materiallarni alohida yig‘ing.</p>
+            </div>
+        </div>
+
+        <div class="tip reveal">
+            <div class="tip-icon">🚲</div>
+            <div>
+                <h3 data-i18n="tip4Title">Piyoda yuring yoki velosiped haydang</h3>
+                <p data-i18n="tip4Text">Imkon bo‘lsa, qisqa masofalarga avtomobilsiz boring.</p>
+            </div>
+        </div>
+
+        <div class="tip reveal">
+            <div class="tip-icon">🛍️</div>
+            <div>
+                <h3 data-i18n="tip5Title">Ko‘p martalik sumkadan foydalaning</h3>
+                <p data-i18n="tip5Text">Bir martalik plastik mahsulotlardan foydalanishni kamaytiring.</p>
+            </div>
+        </div>
+
+        <div class="tip reveal">
+            <div class="tip-icon">🔌</div>
+            <div>
+                <h3 data-i18n="tip6Title">Elektr energiyasini tejang</h3>
+                <p data-i18n="tip6Text">Keraksiz chiroqlar va elektr jihozlarini o‘chirib qo‘ying.</p>
+            </div>
+        </div>
+
+        <div class="tip reveal">
+            <div class="tip-icon">🐾</div>
+            <div>
+                <h3 data-i18n="tip7Title">Hayvonlarni himoya qiling</h3>
+                <p data-i18n="tip7Text">Yovvoyi hayvonlarni bezovta qilmang va ularning yashash joylarini asrang.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="quiz">
+    <div class="section-title reveal">
+        <h2 data-i18n="quizTitle">Eco test — bilimingizni sinab ko‘ring!</h2>
+        <p data-i18n="quizText">10 ta qiziqarli savol orqali ekologik bilimlaringizni tekshiring.</p>
+    </div>
+
+    <div class="quiz-box reveal">
+        <div class="quiz-progress" id="quizProgress">1 / 10</div>
+        <h3 id="question">Savol yuklanmoqda...</h3>
+        <div id="options"></div>
+        <div class="quiz-feedback" id="feedback"></div>
+
+        <div class="quiz-controls">
+            <span id="score">Ball: 0</span>
+            <button class="btn" id="nextButton" onclick="nextQuestion()">Keyingi savol →</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>BIO DUNYO 🌿</h3>
+            <p data-i18n="footerAbout">
+                Tabiatni sevish va asrash — har birimizning burchimiz.
+                Keling, birgalikda yashil kelajak yaratamiz!
+            </p>
+        </div>
+
+        <div>
+            <h3 data-i18n="quickLinks">Tezkor havolalar</h3>
+            <p><a href="#home" data-i18n="home">Bosh sahifa</a></p>
+            <p><a href="#problems" data-i18n="problems">Ekologik muammolar</a></p>
+            <p><a href="#protect" data-i18n="protect">Tabiatni asraylik</a></p>
+            <p><a href="#gallery" data-i18n="gallery">Galereya</a></p>
+            <p><a href="#eco-articles">Ekologik bilimlar</a></p>
+        </div>
+
+        <div>
+            <h3 data-i18n="contact">Aloqa</h3>
+            <p data-i18n="contactText">Tabiatni asrashga bugundan boshlang!</p>
+            <p>🌍 BIO DUNYO</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 BIO DUNYO. <span data-i18n="footerRights">Barcha huquqlar himoyalangan.</span>
+    </div>
+</footer>
+
+<script>
+const translations = {
+    uz: {
+        home: "Bosh sahifa",
+        problems: "Ekologik muammolar",
+        protect: "Tabiatni asraylik",
+        gallery: "Galereya",
+        tips: "Foydali maslahatlar",
+        quiz: "Eco test",
+        heroTitle: "Tabiatni asrash — kelajakni asrash!",
+        heroText: "Bizning sayyoramiz — yagona uyimiz. Tabiatni sevaylik, atrof-muhitni himoya qilaylik va kelajak avlod uchun yashil dunyo qoldiraylik.",
+        discover: "Kashf etish",
+        takeTest: "Test ishlash",
+        problemsTitle: "Bugungi ekologik muammolar",
+        problemsText: "Atrof-muhitga beparvo munosabat tabiat muvozanatiga ta’sir qiladi. Keling, eng muhim ekologik muammolar bilan tanishamiz.",
+        problem1Title: "Orol dengizi muammosi",
+        problem1Text: "Orol dengizining qisqarishi Markaziy Osiyodagi eng katta ekologik muammolardan biridir. Bu holat tabiat va inson hayotiga ta’sir ko‘rsatadi.",
+        problem2Title: "Suv tanqisligi",
+        problem2Text: "Suv — hayot manbai. Suvni isrof qilish, ifloslantirish va undan noto‘g‘ri foydalanish kelajak uchun jiddiy xavf tug‘diradi.",
+        problem3Title: "O‘rmonlarning kamayishi",
+        problem3Text: "Daraxtlar havoni tozalaydi, kislorod ishlab chiqaradi va ko‘plab tirik organizmlar uchun yashash joyi hisoblanadi.",
+        problem4Title: "Havoning ifloslanishi",
+        problem4Text: "Transport, sanoat va chiqindilar havoga zararli moddalar chiqarishi mumkin. Toza havo salomatlik va tabiat uchun juda muhim.",
+        stat1: "Yer yuzining suv bilan qoplangan qismi",
+        stat2: "Dunyodagi daraxtlar soni bo‘yicha taxmin",
+        stat3: "Biz yashaydigan yagona sayyora",
+        stat4: "Tabiatni asrash imkoniyatlari",
+        protectTitle: "Tabiatni qanday asraymiz?",
+        protectText: "Kichik odatlar katta o‘zgarishlarga sabab bo‘lishi mumkin. Har bir inson tabiatni himoya qilishga hissa qo‘sha oladi.",
+        protect1Title: "Daraxt eking",
+        protect1Text: "Daraxtlar havoni tozalashga, tuproqni mustahkamlashga va ko‘plab jonzotlarga boshpana bo‘lishga yordam beradi.",
+        protect2Title: "Chiqindini saralang",
+        protect2Text: "Qog‘oz, plastik, shisha va metallni alohida yig‘ish qayta ishlash jarayonini osonlashtiradi.",
+        protect3Title: "Suvni tejang",
+        protect3Text: "Jo‘mrakni bekorga ochiq qoldirmang, suvdan oqilona foydalaning va suv havzalarini ifloslantirmang.",
+        articlesTitle: "Ekologik bilimlar olami",
+        articlesText: "Tabiat haqida ko‘proq bilish uni yaxshiroq asrashga yordam beradi.",
+        article1Title: "O‘zbekistonning tabiiy boyliklari",
+        article1Text: "O‘zbekiston tog‘lar, cho‘llar, daryolar, ko‘llar va turli tabiiy ekotizimlarga boy. Ularni asrash barchamizning vazifamizdir.",
+        article2Title: "Qizil kitob nima?",
+        article2Text: "Qizil kitob — yo‘qolib ketish xavfi ostidagi o‘simlik va hayvon turlari haqidagi ma’lumotlarni jamlagan muhim nashr.",
+        article3Title: "Ustyurt platosi",
+        article3Text: "Ustyurt — O‘zbekistonning shimoli-g‘arbida joylashgan keng plato. Bu hudud o‘ziga xos landshaft va yovvoyi tabiatga ega.",
+        galleryTitle: "O‘zbekiston tabiatidan lavhalar",
+        galleryText: "Yurtimizning betakror go‘zalligi va tabiiy boyliklari.",
+        tipsTitle: "Har kuni bajarish mumkin bo‘lgan 7 foydali odat",
+        tipsText: "Tabiatni asrash kundalik hayotimizdagi oddiy tanlovlardan boshlanadi.",
+        tip1Title: "Daraxt va gullarni asrang",
+        tip1Text: "O‘simliklarni sindirmang, ko‘chat ekish tadbirlarida qatnashing.",
+        tip2Title: "Suvni tejang",
+        tip2Text: "Tish yuvayotganda jo‘mrakni yopib qo‘ying va suvni isrof qilmang.",
+        tip3Title: "Chiqindilarni saralang",
+        tip3Text: "Qayta ishlash mumkin bo‘lgan materiallarni alohida yig‘ing.",
+        tip4Title: "Piyoda yuring yoki velosiped haydang",
+        tip4Text: "Imkon bo‘lsa, qisqa masofalarga avtomobilsiz boring.",
+        tip5Title: "Ko‘p martalik sumkadan foydalaning",
+        tip5Text: "Bir martalik plastik mahsulotlardan foydalanishni kamaytiring.",
+        tip6Title: "Elektr energiyasini tejang",
+        tip6Text: "Keraksiz chiroqlar va elektr jihozlarini o‘chirib qo‘ying.",
+        tip7Title: "Hayvonlarni himoya qiling",
+        tip7Text: "Yovvoyi hayvonlarni bezovta qilmang va ularning yashash joylarini asrang.",
+        quizTitle: "Eco test — bilimingizni sinab ko‘ring!",
+        quizText: "10 ta qiziqarli savol orqali ekologik bilimlaringizni tekshiring.",
+        footerAbout: "Tabiatni sevish va asrash — har birimizning burchimiz. Keling, birgalikda yashil kelajak yaratamiz!",
+        quickLinks: "Tezkor havolalar",
+        contact: "Aloqa",
+        contactText: "Tabiatni asrashga bugundan boshlang!",
+        footerRights: "Barcha huquqlar himoyalangan."
+    },
+
+    ru: {
+        home: "Главная",
+        problems: "Экологические проблемы",
+        protect: "Защита природы",
+        gallery: "Галерея",
+        tips: "Полезные советы",
+        quiz: "Эко-тест",
+        heroTitle: "Защищая природу, мы защищаем будущее!",
+        heroText: "Наша планета — наш единственный дом. Давайте любить природу, защищать окружающую среду и оставим зелёный мир будущим поколениям.",
+        discover: "Узнать больше",
+        takeTest: "Пройти тест",
+        problemsTitle: "Современные экологические проблемы",
+        problemsText: "Безразличное отношение к окружающей среде нарушает природный баланс. Давайте познакомимся с главными экологическими проблемами.",
+        problem1Title: "Проблема Аральского моря",
+        problem1Text: "Высыхание Аральского моря — одна из крупнейших экологических проблем Центральной Азии. Это влияет на природу и жизнь людей.",
+        problem2Title: "Нехватка воды",
+        problem2Text: "Вода — источник жизни. Расточительное использование и загрязнение воды создают серьёзную угрозу будущему.",
+        problem3Title: "Сокращение лесов",
+        problem3Text: "Деревья очищают воздух, производят кислород и служат домом для многих живых организмов.",
+        problem4Title: "Загрязнение воздуха",
+        problem4Text: "Транспорт, промышленность и отходы могут выделять вредные вещества. Чистый воздух важен для здоровья и природы.",
+        stat1: "Поверхности Земли покрыто водой",
+        stat2: "Примерное количество деревьев в мире",
+        stat3: "Единственная планета, на которой мы живём",
+        stat4: "Возможности защиты природы",
+        protectTitle: "Как мы можем защитить природу?",
+        protectText: "Маленькие привычки могут привести к большим изменениям. Каждый человек может внести вклад в защиту природы.",
+        protect1Title: "Сажайте деревья",
+        protect1Text: "Деревья помогают очищать воздух, укреплять почву и служат убежищем для многих живых существ.",
+        protect2Title: "Сортируйте отходы",
+        protect2Text: "Раздельный сбор бумаги, пластика, стекла и металла облегчает переработку.",
+        protect3Title: "Экономьте воду",
+        protect3Text: "Не оставляйте кран открытым, разумно используйте воду и не загрязняйте водоёмы.",
+        articlesTitle: "Мир экологических знаний",
+        articlesText: "Чем больше мы знаем о природе, тем лучше можем её защищать.",
+        article1Title: "Природные богатства Узбекистана",
+        article1Text: "Узбекистан богат горами, пустынями, реками, озёрами и различными природными экосистемами. Их сохранение — наша общая задача.",
+        article2Title: "Что такое Красная книга?",
+        article2Text: "Красная книга содержит сведения о видах растений и животных, находящихся под угрозой исчезновения.",
+        article3Title: "Устюртское плато",
+        article3Text: "Устюрт — большое плато на северо-западе Узбекистана с уникальными ландшафтами и дикой природой.",
+        galleryTitle: "Природа Узбекистана",
+        galleryText: "Неповторимая красота и природные богатства нашей страны.",
+        tipsTitle: "7 полезных привычек на каждый день",
+        tipsText: "Защита природы начинается с простых повседневных решений.",
+        tip1Title: "Берегите деревья и цветы",
+        tip1Text: "Не ломайте растения и участвуйте в посадке саженцев.",
+        tip2Title: "Экономьте воду",
+        tip2Text: "Закрывайте кран во время чистки зубов и не расходуйте воду зря.",
+        tip3Title: "Сортируйте отходы",
+        tip3Text: "Собирайте отдельно материалы, которые можно переработать.",
+        tip4Title: "Ходите пешком или ездите на велосипеде",
+        tip4Text: "По возможности преодолевайте короткие расстояния без автомобиля.",
+        tip5Title: "Используйте многоразовые сумки",
+        tip5Text: "Сокращайте использование одноразовых пластиковых изделий.",
+        tip6Title: "Экономьте электроэнергию",
+        tip6Text: "Выключайте ненужный свет и электроприборы.",
+        tip7Title: "Защищайте животных",
+        tip7Text: "Не беспокойте диких животных и берегите места их обитания.",
+        quizTitle: "Эко-тест — проверьте свои знания!",
+        quizText: "Проверьте свои экологические знания с помощью 10 интересных вопросов.",
+        footerAbout: "Любить и беречь природу — обязанность каждого из нас. Давайте вместе создадим зелёное будущее!",
+        quickLinks: "Быстрые ссылки",
+        contact: "Контакты",
+        contactText: "Начните защищать природу уже сегодня!",
+        footerRights: "Все права защищены."
+    },
+
+    en: {
+        home: "Home",
+        problems: "Environmental Problems",
+        protect: "Protect Nature",
+        gallery: "Gallery",
+        tips: "Useful Tips",
+        quiz: "Eco Quiz",
+        heroTitle: "Protecting nature means protecting our future!",
+        heroText: "Our planet is our only home. Let's love nature, protect the environment and leave a greener world for future generations.",
+        discover: "Discover",
+        takeTest: "Take the Quiz",
+        problemsTitle: "Environmental Problems Today",
+        problemsText: "Careless treatment of the environment affects the balance of nature. Let's learn about some of the most important environmental problems.",
+        problem1Title: "The Aral Sea Crisis",
+        problem1Text: "The shrinking of the Aral Sea is one of the biggest environmental problems in Central Asia. It affects nature and people's lives.",
+        problem2Title: "Water Scarcity",
+        problem2Text: "Water is the source of life. Wasting and polluting water creates a serious risk for the future.",
+        problem3Title: "Deforestation",
+        problem3Text: "Trees clean the air, produce oxygen and provide habitats for many living organisms.",
+        problem4Title: "Air Pollution",
+        problem4Text: "Transport, industry and waste can release harmful substances into the air. Clean air is essential for people and nature.",
+        stat1: "Of Earth's surface is covered by water",
+        stat2: "Estimated number of trees worldwide",
+        stat3: "The only planet we call home",
+        stat4: "Ways to protect nature",
+        protectTitle: "How Can We Protect Nature?",
+        protectText: "Small habits can lead to big changes. Every person can contribute to protecting nature.",
+        protect1Title: "Plant Trees",
+        protect1Text: "Trees help clean the air, strengthen the soil and provide shelter for many living creatures.",
+        protect2Title: "Sort Your Waste",
+        protect2Text: "Separating paper, plastic, glass and metal makes recycling easier.",
+        protect3Title: "Save Water",
+        protect3Text: "Do not leave the tap running, use water wisely and keep water sources clean.",
+        articlesTitle: "A World of Environmental Knowledge",
+        articlesText: "Learning more about nature helps us protect it better.",
+        article1Title: "Natural Treasures of Uzbekistan",
+        article1Text: "Uzbekistan is rich in mountains, deserts, rivers, lakes and different natural ecosystems. Protecting them is our shared responsibility.",
+        article2Title: "What Is the Red Book?",
+        article2Text: "The Red Book contains information about plant and animal species that are at risk of extinction.",
+        article3Title: "Ustyurt Plateau",
+        article3Text: "Ustyurt is a large plateau in northwestern Uzbekistan with unique landscapes and wildlife.",
+        galleryTitle: "Nature of Uzbekistan",
+        galleryText: "The unique beauty and natural treasures of our country.",
+        tipsTitle: "7 Useful Everyday Habits",
+        tipsText: "Protecting nature begins with simple everyday choices.",
+        tip1Title: "Protect Trees and Flowers",
+        tip1Text: "Do not damage plants and take part in tree-planting activities.",
+        tip2Title: "Save Water",
+        tip2Text: "Turn off the tap while brushing your teeth and avoid wasting water.",
+        tip3Title: "Sort Waste",
+        tip3Text: "Collect recyclable materials separately.",
+        tip4Title: "Walk or Ride a Bicycle",
+        tip4Text: "Whenever possible, travel short distances without a car.",
+        tip5Title: "Use Reusable Bags",
+        tip5Text: "Reduce your use of single-use plastic products.",
+        tip6Title: "Save Electricity",
+        tip6Text: "Turn off unnecessary lights and electrical devices.",
+        tip7Title: "Protect Animals",
+        tip7Text: "Do not disturb wild animals and protect their natural habitats.",
+        quizTitle: "Eco Quiz — Test Your Knowledge!",
+        quizText: "Check your environmental knowledge with 10 interesting questions.",
+        footerAbout: "Loving and protecting nature is everyone's responsibility. Let's create a greener future together!",
+        quickLinks: "Quick Links",
+        contact: "Contact",
+        contactText: "Start protecting nature today!",
+        footerRights: "All rights reserved."
+    }
+};
+
+const questions = {
+    uz: [
+        {
+            q: "O‘zbekiston hududidagi eng katta ekologik muammolardan biri qaysi?",
+            options: ["Orol dengizining qurishi", "Vulqon otilishi", "Tsunami", "Muzliklarning ko‘payishi"],
+            answer: 0
+        },
+        {
+            q: "Daraxtlar atmosferaga qaysi gazni chiqaradi?",
+            options: ["Karbonat angidrid", "Kislorod", "Azot", "Metan"],
+            answer: 1
+        },
+        {
+            q: "Chiqindilarni qayta ishlash belgisi qanday ko‘rinishda bo‘ladi?",
+            options: ["Uchta aylanma strelka", "Qizil doira", "Yulduz", "To‘rtburchak"],
+            answer: 0
+        },
+        {
+            q: "Suvni tejashning to‘g‘ri usuli qaysi?",
+            options: ["Jo‘mrakni ochiq qoldirish", "Suvni bekorga oqizish", "Tish yuvayotganda jo‘mrakni yopish", "Suv havzasiga chiqindi tashlash"],
+            answer: 2
+        },
+        {
+            q: "Qizil kitobga qanday turlar kiritiladi?",
+            options: ["Faqat uy hayvonlari", "Yo‘qolib ketish xavfidagi turlar", "Faqat daraxtlar", "Faqat qushlar"],
+            answer: 1
+        },
+        {
+            q: "Orol dengizi qaysi mintaqada joylashgan?",
+            options: ["Janubiy Amerika", "Markaziy Osiyo", "Afrika", "Avstraliya"],
+            answer: 1
+        },
+        {
+            q: "Qaysi chiqindi tabiatda juda uzoq vaqt saqlanishi mumkin?",
+            options: ["Barg", "Meva po‘sti", "Plastik", "Qog‘oz salfetka"],
+            answer: 2
+        },
+        {
+            q: "Havoning ifloslanishini kamaytirishga nima yordam beradi?",
+            options: ["Ko‘proq avtomobil haydash", "Chiqindi yoqish", "Jamoat transportidan foydalanish", "Daraxtlarni kesish"],
+            answer: 2
+        },
+        {
+            q: "O‘zbekistonning qaysi hududida Ustyurt platosi joylashgan?",
+            options: ["Qoraqalpog‘iston", "Farg‘ona", "Toshkent", "Surxondaryo"],
+            answer: 0
+        },
+        {
+            q: "Tabiatni asrash kimning vazifasi?",
+            options: ["Faqat olimlarning", "Faqat davlatning", "Har bir insonning", "Faqat o‘qituvchilarning"],
+            answer: 2
+        }
+    ],
+
+    ru: [
+        {
+            q: "Какая из проблем является одной из крупнейших экологических проблем Узбекистана?",
+            options: ["Высыхание Аральского моря", "Извержение вулкана", "Цунами", "Увеличение ледников"],
+            answer: 0
+        },
+        {
+            q: "Какой газ выделяют деревья в атмосферу?",
+            options: ["Углекислый газ", "Кислород", "Азот", "Метан"],
+            answer: 1
+        },
+        {
+            q: "Как выглядит знак переработки отходов?",
+            options: ["Три стрелки по кругу", "Красный круг", "Звезда", "Прямоугольник"],
+            answer: 0
+        },
+        {
+            q: "Как правильно экономить воду?",
+            options: ["Оставлять кран открытым", "Напрасно сливать воду", "Закрывать кран во время чистки зубов", "Бросать мусор в водоём"],
+            answer: 2
+        },
+        {
+            q: "Какие виды включают в Красную книгу?",
+            options: ["Только домашних животных", "Виды под угрозой исчезновения", "Только деревья", "Только птиц"],
+            answer: 1
+        },
+        {
+            q: "В каком регионе находится Аральское море?",
+            options: ["Южная Америка", "Центральная Азия", "Африка", "Австралия"],
+            answer: 1
+        },
+        {
+            q: "Какие отходы могут очень долго сохраняться в природе?",
+            options: ["Листья", "Фруктовая кожура", "Пластик", "Бумажная салфетка"],
+            answer: 2
+        },
+        {
+            q: "Что помогает уменьшить загрязнение воздуха?",
+            options: ["Больше ездить на автомобиле", "Сжигать мусор", "Пользоваться общественным транспортом", "Вырубать деревья"],
+            answer: 2
+        },
+        {
+            q: "В какой части Узбекистана расположено плато Устюрт?",
+            options: ["Каракалпакстан", "Фергана", "Ташкент", "Сурхандарья"],
+            answer: 0
+        },
+        {
+            q: "Кто должен защищать природу?",
+            options: ["Только учёные", "Только государство", "Каждый человек", "Только учителя"],
+            answer: 2
+        }
+    ],
+
+    en: [
+        {
+            q: "Which is one of the biggest environmental problems in Uzbekistan?",
+            options: ["The drying of the Aral Sea", "Volcanic eruptions", "Tsunamis", "Growing glaciers"],
+            answer: 0
+        },
+        {
+            q: "Which gas do trees release into the atmosphere?",
+            options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Methane"],
+            answer: 1
+        },
+        {
+            q: "What does the recycling symbol look like?",
+            options: ["Three arrows in a loop", "A red circle", "A star", "A rectangle"],
+            answer: 0
+        },
+        {
+            q: "What is a good way to save water?",
+            options: ["Leave the tap running", "Waste water", "Turn off the tap while brushing your teeth", "Throw rubbish into a lake"],
+            answer: 2
+        },
+        {
+            q: "Which species are included in the Red Book?",
+            options: ["Only domestic animals", "Species at risk of extinction", "Only trees", "Only birds"],
+            answer: 1
+        },
+        {
+            q: "In which region is the Aral Sea located?",
+            options: ["South America", "Central Asia", "Africa", "Australia"],
+            answer: 1
+        },
+        {
+            q: "Which type of waste can remain in nature for a very long time?",
+            options: ["Leaves", "Fruit peels", "Plastic", "Paper napkins"],
+            answer: 2
+        },
+        {
+            q: "What helps reduce air pollution?",
+            options: ["Driving more cars", "Burning rubbish", "Using public transport", "Cutting down trees"],
+            answer: 2
+        },
+        {
+            q: "Where is the Ustyurt Plateau located in Uzbekistan?",
+            options: ["Karakalpakstan", "Fergana", "Tashkent", "Surkhandarya"],
+            answer: 0
+        },
+        {
+            q: "Who is responsible for protecting nature?",
+            options: ["Only scientists", "Only the government", "Every person", "Only teachers"],
+            answer: 2
+        }
+    ]
+};
+
+let currentLanguage = "uz";
+let questionIndex = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion() {
+    const list = questions[currentLanguage];
+    const question = list[questionIndex];
+
+    document.getElementById("question").textContent = question.q;
+    document.getElementById("quizProgress").textContent =
+        `${questionIndex + 1} / ${list.length}`;
+    document.getElementById("score").textContent =
+        `${currentLanguage === "uz" ? "Ball" : currentLanguage === "ru" ? "Счёт" : "Score"}: ${score}`;
+
+    const optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = "";
+
+    question.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "quiz-option";
+        button.textContent = option;
+        button.onclick = () => selectAnswer(index);
+        optionsContainer.appendChild(button);
+    });
+
+    document.getElementById("feedback").textContent = "";
+    const nextButton = document.getElementById("nextButton");
+    nextButton.disabled = true;
+    nextButton.style.opacity = ".5";
+    nextButton.textContent =
+        currentLanguage === "uz" ? "Keyingi savol →" :
+        currentLanguage === "ru" ? "Следующий вопрос →" :
+        "Next question →";
+    nextButton.onclick = nextQuestion;
+    answered = false;
+}
+
+function selectAnswer(selectedIndex) {
+    if (answered) return;
+
+    answered = true;
+    const question = questions[currentLanguage][questionIndex];
+    const buttons = document.querySelectorAll(".quiz-option");
+    const feedback = document.getElementById("feedback");
+
+    buttons.forEach((button, index) => {
+        button.disabled = true;
+
+        if (index === question.answer) {
+            button.classList.add("correct");
+        }
+
+        if (index === selectedIndex && selectedIndex !== question.answer) {
+            button.classList.add("wrong");
+        }
+    });
+
+    if (selectedIndex === question.answer) {
+        score++;
+        feedback.textContent =
+            currentLanguage === "uz" ? "Ajoyib! To‘g‘ri javob! 🎉" :
+            currentLanguage === "ru" ? "Отлично! Правильный ответ! 🎉" :
+            "Excellent! Correct answer! 🎉";
+        feedback.style.color = "#16834b";
+    } else {
+        feedback.textContent =
+            currentLanguage === "uz" ? "Afsus, noto‘g‘ri. To‘g‘ri javob yashil rangda ko‘rsatilgan." :
+            currentLanguage === "ru" ? "Неверно. Правильный ответ отмечен зелёным." :
+            "Not quite. The correct answer is highlighted in green.";
+        feedback.style.color = "#d34b4b";
+    }
+
+    document.getElementById("score").textContent =
+        `${currentLanguage === "uz" ? "Ball" : currentLanguage === "ru" ? "Счёт" : "Score"}: ${score}`;
+
+    const nextButton = document.getElementById("nextButton");
+    nextButton.disabled = false;
+    nextButton.style.opacity = "1";
+}
+
+function nextQuestion() {
+    if (!answered) return;
+
+    questionIndex++;
+
+    if (questionIndex < questions[currentLanguage].length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    const total = questions[currentLanguage].length;
+    const percentage = Math.round((score / total) * 100);
+
+    document.getElementById("question").textContent =
+        currentLanguage === "uz" ? "Test yakunlandi! 🌿" :
+        currentLanguage === "ru" ? "Тест завершён! 🌿" :
+        "Quiz completed! 🌿";
+
+    document.getElementById("options").innerHTML = `
+        <div style="text-align:center;padding:25px 10px">
+            <div style="font-size:55px;margin-bottom:10px">
+                ${percentage >= 80 ? "🏆" : percentage >= 50 ? "🌱" : "🌍"}
+            </div>
+            <h2 style="color:var(--green);font-size:32px">${score} / ${total}</h2>
+            <p style="margin-top:10px">
+                ${currentLanguage === "uz" ? `Siz ${percentage}% natija ko‘rsatdingiz!` :
+                  currentLanguage === "ru" ? `Ваш результат: ${percentage}%!` :
+                  `You scored ${percentage}%!`}
+            </p>
+            <p style="margin-top:10px">
+                ${percentage >= 80 ?
+                    (currentLanguage === "uz" ? "Ajoyib! Siz ekologiya bilimdonisiz!" :
+                     currentLanguage === "ru" ? "Прекрасно! Вы отлично знаете экологию!" :
+                     "Excellent! You know a lot about ecology!") :
+                  percentage >= 50 ?
+                    (currentLanguage === "uz" ? "Yaxshi! Yana ozgina o‘rganing!" :
+                     currentLanguage === "ru" ? "Хорошо! Продолжайте учиться!" :
+                     "Good job! Keep learning!") :
+                    (currentLanguage === "uz" ? "Harakat qiling! Tabiat haqida ko‘proq bilib oling." :
+                     currentLanguage === "ru" ? "Продолжайте! Узнавайте больше о природе." :
+                     "Keep trying! Learn more about nature.")}
+            </p>
+        </div>
+    `;
+
+    document.getElementById("quizProgress").textContent = `${total} / ${total}`;
+
+    const nextButton = document.getElementById("nextButton");
+    nextButton.disabled = false;
+    nextButton.style.opacity = "1";
+    nextButton.textContent =
+        currentLanguage === "uz" ? "Qayta boshlash ↻" :
+        currentLanguage === "ru" ? "Начать заново ↻" :
+        "Restart ↻";
+    nextButton.onclick = restartQuiz;
+}
+
+function restartQuiz() {
+    questionIndex = 0;
+    score = 0;
+    showQuestion();
+}
+
+function changeLanguage(lang) {
+    currentLanguage = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    const searchInput = document.getElementById("searchInput");
+
+    if (lang === "uz") {
+        searchInput.placeholder = "Maqola yoki ma’lumot qidirish...";
+    } else if (lang === "ru") {
+        searchInput.placeholder = "Поиск статьи или информации...";
+    } else {
+        searchInput.placeholder = "Search for an article or information...";
+    }
+
+    questionIndex = 0;
+    score = 0;
+    showQuestion();
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    const button = document.querySelector(".nav-actions button");
+    button.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+}
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+function searchContent() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.querySelectorAll(".searchable");
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(input) ? "" : "none";
+    });
+}
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 80) {
+            element.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+showQuestion();
+</script>
+
+</body>
+</html>
